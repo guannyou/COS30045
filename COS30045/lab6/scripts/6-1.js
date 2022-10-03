@@ -36,7 +36,7 @@ function init() {
                .attr("y", yPosition + 14)
                .text(d);
            })
-           .on("mouseout", function() {
+           .on("mouseout", function(event, d) {
                d3.select(this)
                  .attr("fill", "rgb(0, 0, " + (d * 10) + ")");
     
