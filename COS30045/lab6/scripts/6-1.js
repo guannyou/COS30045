@@ -28,21 +28,27 @@ function init() {
             var yPosition = parseFloat(d3.select(this).attr("y"));
 
                d3.select(this)
-               .attr("fill", "orange");
+                 .transition()
+                 .delay(50)
+                 .attr("fill", "orange");
     
                svg.append("text")
-               .attr("id", "tooltip")
-               .attr("x", xPosition + (xScale.bandwidth() / 2) - 7)
-               .attr("y", yPosition + 14)
-               .text(d);
+                  .attr("id", "tooltip")
+                  .attr("x", xPosition + (xScale.bandwidth() / 2) - 7)
+                  .attr("y", yPosition + 14)
+                  .text(d);
            })
            .on("mouseout", function(event, d) {
-               d3.select(this)
+               d3.select(this)               
+                 .transition()
+                 .delay(250)
                  .attr("fill", "rgb(0, 0, " + (d * 10) + ")");
     
                d3.select("#tooltip")
                  .remove()
-           })
+           })           
+        //    .transition()
+        //    .delay(250)
         }
     registerMouseovers();
 
