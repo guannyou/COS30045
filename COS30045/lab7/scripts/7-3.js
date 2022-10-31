@@ -69,20 +69,6 @@ function init() {
                           return yScale(d[0]) - yScale(d[1]);
                       })
                       .attr("width", xScale.bandwidth());
-    
-    svg.selectAll("text")
-        .data(dataset)
-        .enter()
-        .append("text")
-        .text(function(d) {
-            return d[0] + "," + d[1];
-        })
-        .attr("x", function(d) {
-            return xScale(d[0] - 20);
-        })
-        .attr("y", function(d) {
-            return yScale(d[1] + 8);
-        })
 
     svg.append("g")
        .attr("transform", "translate(0, " + (h - padding) + ")")
